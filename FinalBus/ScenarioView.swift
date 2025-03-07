@@ -163,7 +163,7 @@ struct ScenarioView: View {
             // النسبة داخل دائرة
             ZStack {
                 Circle()
-                    .stroke(Color.purple.opacity(0.3), lineWidth: 6)
+                    .stroke(Color.secondaryH.opacity(0.3), lineWidth: 6)
                     .frame(width: 50, height: 50)
                 Circle()
                     .trim(from: 0, to: CGFloat(percentage) / 100)
