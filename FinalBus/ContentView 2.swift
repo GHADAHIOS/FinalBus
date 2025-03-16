@@ -245,7 +245,7 @@ struct ContentView: View {
                 }
 
                 // ✅ Hidden NavigationLink to move to ScenarioView when navigateToScenario is true
-                NavigationLink(destination: ScenarioView(), isActive: $navigateToScenario) {
+                NavigationLink(destination: ScenarioView2(), isActive: $navigateToScenario) {
                     EmptyView()
                 }
             }
