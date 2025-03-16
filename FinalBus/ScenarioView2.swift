@@ -32,7 +32,56 @@ struct ScenarioView2: View {
          ["Enhance SEO.", "Run paid ads.", "Collaborate with influencers.", "Redesign the website."]),
         ("Your team is struggling with productivity. What’s your approach?",
          ["Implement time tracking.", "Offer remote work options.", "Provide training.", "Increase salaries."]),
+        ("An investor wants to see quick profitability. What do you do?",
+         ["Increase pricing.", "Expand to new markets.", "Reduce expenses.", "Improve conversion rates."]),
+        ("Your product has many bugs after launch. How do you handle it?",
+         ["Release a hotfix ASAP.", "Communicate issues to users.", "Delay new features to fix bugs.", "Offer compensation to affected users."]),
+        ("You’re losing customers to a competitor. How do you react?",
+         ["Improve customer support.", "Launch a discount campaign.", "Enhance your product.", "Target competitor’s audience with ads."]),
+        ("You need to raise capital. What’s your best approach?",
+         ["Seek venture capital.", "Apply for a startup loan.", "Crowdfund your idea.", "Bootstrap and grow organically."]),
+        ("A major client cancels a contract. What’s your next step?",
+         ["Find new clients quickly.", "Diversify your revenue streams.", "Negotiate with the client.", "Reduce costs to compensate."]),
+        ("Your marketing campaign is underperforming. What do you change?",
+         ["Adjust targeting.", "Increase budget.", "Change the ad creative.", "Try a different platform."]),
+        ("A key employee resigns unexpectedly. How do you handle it?",
+         ["Promote internally.", "Hire a replacement quickly.", "Distribute workload among team.", "Offer incentives to retain staff."]),
+        ("Your app's engagement rate is low. How do you boost it?",
+         ["Introduce gamification.", "Enhance notifications.", "Improve onboarding.", "Add social sharing features."]),
+        ("Your business gets negative PR. What’s your response?",
+         ["Issue a public apology.", "Engage with the community.", "Ignore and move forward.", "Offer discounts to regain trust."]),
+        ("Your competitors launch a cheaper alternative. How do you react?",
+         ["Lower your prices.", "Differentiate on quality.", "Offer additional services.", "Enhance branding."]),
+        ("Your startup faces a lawsuit. What do you do first?",
+         ["Hire legal counsel.", "Settle out of court.", "Defend aggressively.", "Seek public support."]),
+        ("Your software experiences a security breach. What’s your next move?",
+         ["Notify affected users.", "Enhance security measures.", "Offer compensation.", "Investigate internally first."]),
+        ("Your startup is expanding too fast. How do you manage?",
+         ["Slow down growth.", "Secure more funding.", "Hire experienced leaders.", "Improve internal processes."]),
+        ("Your lead generation is failing. What’s your new approach?",
+         ["Try inbound marketing.", "Focus on outbound sales.", "Offer referral incentives.", "Increase content marketing."]),
+        ("A supplier raises prices unexpectedly. What’s your response?",
+         ["Negotiate better terms.", "Find alternative suppliers.", "Absorb the costs.", "Pass costs to customers."]),
+        ("Your social media engagement is low. How do you improve it?",
+         ["Post more frequently.", "Use paid promotions.", "Engage with followers.", "Run giveaways."]),
+        ("A major partner pulls out. How do you recover?",
+         ["Find a new partner.", "Adjust business strategy.", "Strengthen remaining partnerships.", "Absorb the impact internally."]),
+        ("Your MVP gets mixed feedback. What’s your next step?",
+         ["Refine based on feedback.", "Launch a new version.", "Ignore and proceed.", "Test different user segments."]),
+        ("A new law affects your business model. How do you adapt?",
+         ["Consult a lawyer.", "Pivot your business model.", "Lobby against the law.", "Find loopholes."]),
+        ("Your employees demand better benefits. How do you respond?",
+         ["Increase salaries.", "Offer stock options.", "Enhance work culture.", "Negotiate compromises."]),
+        ("You’re running out of personal savings. What do you do?",
+         ["Find a co-founder.", "Raise funding.", "Look for a side income.", "Take out a personal loan."]),
+        ("A top competitor wants to acquire you. What’s your decision?",
+         ["Accept the offer.", "Negotiate better terms.", "Decline and compete.", "Merge but keep control."]),
+        ("Your startup struggles to build brand awareness. How do you fix it?",
+         ["Launch PR campaigns.", "Leverage social media influencers.", "Run viral marketing stunts.", "Focus on community building."]),
+        ("A major client delays payment. What’s your next move?",
+         ["Charge late fees.", "Negotiate payment terms.", "Seek legal action.", "Offer discounts for early payment."])
     ]
+
 
     @State private var selectedScenarios: [(question: String, options: [String])] = []
 
@@ -112,7 +161,7 @@ struct ScenarioView2: View {
                         Spacer()
                         Text("Scenario \(currentScenario):\n\(selectedScenarios[currentScenario - 1].question)")
                             .foregroundColor(.white)
-                            .font(.system(size: 20, weight: .bold))
+                            .font(.system(size:25))
                             .multilineTextAlignment(.center)
                             .frame(width: 350)
                             .padding(.bottom, 50)
@@ -277,6 +326,7 @@ struct ScenarioView2: View {
                 }
             }
         }
+        .navigationBarBackButtonHidden(true)
     }
 
     private func colorForStep(_ index: Int) -> Color {
