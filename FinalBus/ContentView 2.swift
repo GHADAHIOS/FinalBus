@@ -9,8 +9,9 @@ struct ContentView: View {
             VStack(spacing: 16) {
                 // ✅ المربعات الأساسية
                 HStack(spacing: 16) {
+                    
+                    // ✅ Market Expansion Box
                     ZStack {
-                        // 1️⃣ الصندوق الأساسي فيه صورة ونص
                         VStack {
                             Image("Image")
                                 .resizable()
@@ -28,22 +29,20 @@ struct ContentView: View {
                         .background(Color.rok)
                         .cornerRadius(10)
                         
-                        // 2️⃣ الصندوق الإضافي بنفس الحجم
                         RoundedRectangle(cornerRadius: 10)
-                            .fill(Color.rok.opacity(0.86)) // صندوق شفاف بلون غامق
+                            .fill(Color.rok.opacity(0.86))
                             .frame(width: 165.97, height: 126.67)
                         
-                        // 3️⃣ نص "SOON" فوق كل شيء
                         Text("SOON")
                             .font(.title)
                             .bold()
                             .foregroundColor(.black)
                             .opacity(0.73)
-
                             .padding(.top, 10)
                     }
-                ZStack {
-                        // 1️⃣ الصندوق الأساسي فيه صورة ونص
+                    
+                    // ✅ Launching a Startup Box
+                    ZStack {
                         VStack {
                             Image("Image 3")
                                 .resizable()
@@ -54,23 +53,21 @@ struct ContentView: View {
                             Text("Launching a Startup")
                                 .font(.subheadline)
                                 .foregroundColor(.black)
-                              
-
                                 .bold()
                         }
                         .frame(width: 165.97, height: 126.67)
                         .background(Color.color1)
                         .cornerRadius(10)
-                        
-                        // 2️⃣ الصندوق الإضافي بنفس الحجم
-                        
-                            .padding(.top, 10)
+                        .onTapGesture {
+                            showPopup = true
+                        } // ✅ يظهر البوب أب عند الضغط
                     }
                 }
 
                 HStack(spacing: 16) {
+                    
+                    // ✅ Team Management Box
                     ZStack {
-                        // 1️⃣ الصندوق الأساسي فيه صورة ونص
                         VStack {
                             Image("Image 1")
                                 .resizable()
@@ -87,12 +84,10 @@ struct ContentView: View {
                         .background(Color.rok)
                         .cornerRadius(10)
                         
-                        // 2️⃣ الصندوق الإضافي بنفس الحجم
                         RoundedRectangle(cornerRadius: 10)
-                            .fill(Color.rok.opacity(0.86)) // صندوق شفاف بلون غامق
+                            .fill(Color.rok.opacity(0.86))
                             .frame(width: 165.97, height: 126.67)
                         
-                        // 3️⃣ نص "SOON" فوق كل شيء
                         Text("SOON")
                             .font(.title)
                             .bold()
@@ -100,8 +95,9 @@ struct ContentView: View {
                             .opacity(0.73)
                             .padding(.top, 10)
                     }
+                    
+                    // ✅ Money Management Box
                     ZStack {
-                        // 1️⃣ الصندوق الأساسي فيه صورة ونص
                         VStack {
                             Image("Image 2")
                                 .resizable()
@@ -109,7 +105,7 @@ struct ContentView: View {
                                 .frame(width: 70, height: 70)
                                 .foregroundColor(.white)
                             
-                            Text("Monay Management ")
+                            Text("Money Management")
                                 .font(.subheadline)
                                 .foregroundColor(.black)
                                 .bold()
@@ -118,20 +114,18 @@ struct ContentView: View {
                         .background(Color.rok)
                         .cornerRadius(10)
                         
-                        // 2️⃣ الصندوق الإضافي بنفس الحجم
                         RoundedRectangle(cornerRadius: 10)
-                            .fill(Color.rok.opacity(0.86)) // صندوق شفاف بلون غامق
+                            .fill(Color.rok.opacity(0.86))
                             .frame(width: 165.97, height: 126.67)
                         
-                        // 3️⃣ نص "SOON" فوق كل شيء
                         Text("SOON")
                             .font(.title)
                             .bold()
                             .foregroundColor(.black)
                             .opacity(0.73)
-
                             .padding(.top, 10)
-                    }                }
+                    }
+                }
 
                 Divider()
                     .frame(height: 1)
@@ -249,20 +243,24 @@ struct ContentView: View {
                         }
                     }
                 }
-                
+
+                // ✅ Hidden NavigationLink to move to ScenarioView when navigateToScenario is true
                 NavigationLink(destination: ScenarioView(), isActive: $navigateToScenario) {
                     EmptyView()
                 }
             }
             .padding()
+            // ✅ Alert popup
             .alert(isPresented: $showPopup) {
                 Alert(
                     title: Text("Are you ready?"),
                     message: Text("You will have 5 scenarios related to Launching a Startup."),
                     primaryButton: .default(Text("Start")) {
-                        navigateToScenario = true
+                        navigateToScenario = true // ✅ Moves to ScenarioView
                     },
-                    secondaryButton: .cancel(Text("Cancel"))
+                    secondaryButton: .cancel(Text("Cancel")) {
+                        showPopup = false // ✅ Stays on the same page
+                    }
                 )
             }
         }
